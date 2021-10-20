@@ -9,11 +9,7 @@
     "en": "Sensative Z-Wave Strips support for Homey",
     "nl": "Sensative Z-Wave Strips ondersteuning voor Homey"
   },
-  "category": [
-    "appliances",
-    "security",
-    "climate"
-  ],
+  "category": ["appliances", "security", "climate"],
   "images": {
     "large": "/assets/images/large.png",
     "small": "/assets/images/small.png"
@@ -41,14 +37,18 @@
     ]
   },
   "author": {
-    "name": "Marcel Veldhuizen",
-    "email": "marcel@thorarin.net"
+    "name": "Baasandash Damdinbazar",
+    "email": "baasandash@sensative.com"
   },
   "contributors": {
     "developers": [
       {
         "name": "Marcel Veldhuizen",
         "email": "marcel@thorarin.net"
+      },
+      {
+        "name": "Dhiraj Paryani",
+        "email": "dhiraj.paryani@sensative.com"
       },
       {
         "name": "Marco Ruiter",

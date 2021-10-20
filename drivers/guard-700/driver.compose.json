@@ -1,0 +1,72 @@
+{
+  "name": {
+    "en": "Guard 700"
+  },
+  "class": "sensor",
+  "capabilities": [
+    "measure_battery",
+    "alarm_battery",
+    "alarm_contact",
+    "alarm_tamper",
+    "button.reset_tamper_alarm"
+  ],
+  "capabilitiesOptions": {
+    "button.reset_tamper_alarm": {
+      "maintenanceAction": true,
+      "title": {
+        "en": "Reset tamper alarm",
+        "nl": "Sabotage-alarm resetten"
+      },
+      "desc": {
+        "en": "Manually reset the tamper alarm after it has been triggered.",
+        "nl": "Schakel het sabotage-alarm handmatig uit nadat deze is getriggerd."
+      }
+    }
+  },
+  "energy": {
+    "batteries": ["INTERNAL"]
+  },
+  "images": {
+    "small": "/drivers/guard-700/assets/images/small.png",
+    "large": "/drivers/guard-700/assets/images/large.png",
+    "xlarge": "/drivers/guard-700/assets/images/xlarge.png"
+  },
+  "zwave": {
+    "manufacturerId": 410,
+    "productTypeId": 4,
+    "productId": 4,
+    "wakeUpInterval": 43200,
+    "learnmode": {
+      "image": "/drivers/guard-700/assets/learnmode.png",
+      "instruction": {
+        "en": "To Add Strips to Your Homey hub\n\n1. Remove both magnets from Strips*\n2. The application may ask for the PIN code or the QR code scan. The PIN code is the first five digits of the DSK code\n\n*If you have previously removed the magnets from Strips, or need to re-add the device, performing a manual wake-up will join the device when the controller is in pairing mode\n\nManual Wake-Up:\n1. Place the magnet on the rounded end then remove it and observe the LED blink once\n2. Repeat 3 times in 10 seconds\n\nOne long LED blink means Strips has been successfully added to your Z-Wave network"
+      }
+    },
+    "unlearnmode": {
+      "image": "/drivers/guard-700/assets/learnmode.png",
+      "instruction": {
+        "en": "Performing a manual wake-up will remove the device when the controller is in un-pairing mode\n\nManual Wake-Up:\n1. Place the magnet on the rounded end then remove it and observe the LED blink once\n2. Repeat 3 times in 10 seconds\n\nOne long LED blink means Strips has been successfully removed from your Z-Wave network"
+      }
+    },
+    "associationGroups": [1],
+    "associationGroupsOptions": {
+      "1": {
+        "hint": {
+          "en": "Z-Wave Plus Lifeline"
+        }
+      }
+    },
+    "defaultConfiguration": [
+      {
+        "id": 1,
+        "size": 1,
+        "value": 1
+      },
+      {
+        "id": 2,
+        "size": 1,
+        "value": 1
+      }
+    ]
+  }
+}

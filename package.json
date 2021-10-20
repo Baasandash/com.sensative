@@ -5,7 +5,8 @@
   "main": "app.js",
   "requires": true,
   "dependencies": {
-    "homey-meshdriver": "git+https://github.com/athombv/node-homey-meshdriver.git"
+    "homey-meshdriver": "git+https://github.com/athombv/node-homey-meshdriver.git",
+    "homey-zwavedriver": "^2.1.6"
   },
   "devDependencies": {
     "copyfiles": "^2.2.0"
@@ -18,12 +19,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Thorarin/com.sensative.git"
+    "url": "git+https://github.com/Baasandash/com.sensative.strips.git"
   },
-  "author": "Marcel Veldhuizen",
+  "author": "Baskaka",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Thorarin/com.sensative/issues"
+    "url": "https://github.com/Baasandash/com.sensative.strips/issues"
   },
-  "homepage": "https://github.com/Thorarin/com.sensative/"
+  "homepage": "https://github.com/Baasandash/com.sensative.strips/"
 }
