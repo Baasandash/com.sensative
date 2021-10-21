@@ -2,6 +2,7 @@
 /.vscode
 /*.png
 /node_modules/
+/build/
 
 # Using Homey Compose
 /app.json
