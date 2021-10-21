@@ -50,6 +50,20 @@
     "value": true
   },
   {
+    "id": "activate_supervision",
+    "type": "number",
+    "label": { "en": "Activate supervision" },
+    "value": 1,
+    "attr": { "min": 0, "max": 2 },
+    "hint": {
+      "en": "Activate Supervision command for only important alarm events or all events (*Supervised commands require a confirmation from the gateway when a notification is received)"
+    },
+    "zwave": {
+      "index": 15,
+      "size": 1
+    }
+  },
+  {
     "type": "group",
     "label": {
       "en": "Capabilities",
