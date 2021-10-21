@@ -5,6 +5,7 @@ const StripsZwaveDevice = require("../StripsZwaveDevice");
 class StripsMultiSensor extends StripsZwaveDevice {
   async onMeshInit() {
     this.registerTemperatureCapability();
+    this.registerWaterCapability();
     this.registerWaterAlarmCapability();
     this.registerHeatAlarmCapability();
 
@@ -64,6 +65,19 @@ class StripsMultiSensor extends StripsZwaveDevice {
           }
         }
 
+        return null;
+      },
+      getOpts: {
+        getOnOnline: true,
+      },
+    });
+  }
+  registerWaterCapability() {
+    this.registerCapability("measure_water", "SENSOR_MULTILEVEL", {
+      reportParser: (report) => {
+        if (report["Sensor Type"] === "Moisture (v5)") {
+          return report["Sensor Value (Parsed)"];
+        }
         return null;
       },
       getOpts: {

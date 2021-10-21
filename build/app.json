@@ -1320,7 +1320,7 @@
         "measure_temperature",
         "alarm_heat",
         "button.reset_heat_alarm",
-        "measure_humidity",
+        "measure_water",
         "alarm_water",
         "button.reset_water_alarm",
         "alarm_tamper",
