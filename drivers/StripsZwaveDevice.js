@@ -99,7 +99,8 @@ class StripsZwaveDevice extends ZwaveDevice {
       reportParser: (report) => {
         if (report["Notification Type"] === "Home Security") {
           switch (report["Event"]) {
-            case 11: // Tamper on
+            case 11: // Tamper on 700 series
+            case 4: // Tamper on 500 series
               return true;
             case 254: // Tamper off
               return false;
