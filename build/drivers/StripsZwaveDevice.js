@@ -12,22 +12,6 @@ const i18n = {
   },
 };
 
-function tamperReportParser(report) {
-  if (
-    report &&
-    report["Notification Type"] === "Home Security" &&
-    report.hasOwnProperty("Event (Parsed)")
-  ) {
-    if (report["Event (Parsed)"] === "Tampering, Invalid Code") {
-      return true;
-    }
-    if (report["Event"] === 254) {
-      return false;
-    }
-  }
-  return null;
-}
-
 class StripsZwaveDevice extends ZwaveDevice {
   async ensureCapabilitiesMatch(capabilityIds) {
     const existingCapabilities = this.getCapabilities();
@@ -112,10 +96,23 @@ class StripsZwaveDevice extends ZwaveDevice {
 
   registerTamperAlarmCapability() {
     this.registerCapability("alarm_tamper", "NOTIFICATION", {
-      reportParser: tamperReportParser,
+      reportParser: (report) => {
+        if (report["Notification Type"] === "Home Security") {
+          switch (report["Event"]) {
+            case 11: // Tamper on
+              return true;
+            case 254: // Tamper off
+              return false;
+          }
+        }
+
+        return null;
+      },
+      getOpts: {
+        getOnOnline: true,
+      },
     });
   }
-
   async onSettings(oldSettings, newSettings, changedKeysArr) {
     const zwaveSettingsChanged = this.getManifestSettings().some(
       (setting) =>

@@ -2,51 +2,29 @@
 
 const StripsZwaveDevice = require("../StripsZwaveDevice");
 
-function luminanceReportParser(report) {
-  const isLuminanceReport =
-    report &&
-    report.hasOwnProperty("Sensor Type") &&
-    report.hasOwnProperty("Sensor Value (Parsed)") &&
-    report["Sensor Type"] === "Luminance (version 1)";
-
-  if (!isLuminanceReport) return null;
-
-  const sensorValue = report["Sensor Value (Parsed)"];
-
-  if (sensorValue < 0) {
-    // Early firmwares of Strips Comfort mistakenly use a 16-bit integer to represent the luminance value.
-    // Z-Wave only supports signed integers, but the value was intended as unsigned.
-    // This should work around that issue, since a lux value can never be negative anyway.
-    return 65536 + sensorValue;
-  }
-
-  return sensorValue;
-}
-
 class StripsMultiSensor extends StripsZwaveDevice {
   async onMeshInit() {
     this.registerTemperatureCapability();
+    this.registerWaterAlarmCapability();
     this.registerHeatAlarmCapability();
 
     const settings = this.getSettings();
     this.registerDynamicCapabilities(settings, true);
+    this.registerBatteryCapabilities();
     this.updateMaintenanceActionRegistrations();
   }
 
   determineCapabilityIds(settings) {
     const capabilities = [];
 
-    capabilities.push("measure_temperature", "alarm_heat");
-    if (settings.maintenance_actions) {
-      capabilities.push("button.reset_heat_alarm");
+    {
+      capabilities.push("measure_temperature", "alarm_heat");
+      if (settings.maintenance_actions) {
+        capabilities.push("button.reset_heat_alarm");
+      }
     }
-
-    if (settings.device_type !== "drip") {
-      capabilities.push("measure_luminance");
-    }
-
-    if (settings.device_type !== "comfort") {
-      capabilities.push("measure_humidity", "alarm_water");
+    {
+      capabilities.push("measure_water", "alarm_water");
       if (settings.maintenance_actions) {
         capabilities.push("button.reset_water_alarm");
       }
@@ -94,29 +72,6 @@ class StripsMultiSensor extends StripsZwaveDevice {
     });
   }
 
-  registerLuminanceCapability() {
-    this.registerCapability("measure_luminance", "SENSOR_MULTILEVEL", {
-      reportParser: luminanceReportParser,
-      getOpts: {
-        getOnOnline: true,
-      },
-    });
-  }
-
-  registerHumidityCapability() {
-    this.registerCapability("measure_humidity", "SENSOR_MULTILEVEL", {
-      reportParser: (report) => {
-        if (report["Sensor Type"] === "Moisture (v5)") {
-          return report["Sensor Value (Parsed)"];
-        }
-        return null;
-      },
-      getOpts: {
-        getOnOnline: true,
-      },
-    });
-  }
-
   registerWaterAlarmCapability() {
     this.registerCapability("alarm_water", "NOTIFICATION", {
       getOpts: {
@@ -132,14 +87,6 @@ class StripsMultiSensor extends StripsZwaveDevice {
     const capabilities = initializing
       ? this.getCapabilities()
       : addedCapabilities;
-
-    if (capabilities.includes("measure_luminance")) {
-      this.registerLuminanceCapability();
-    }
-
-    if (capabilities.includes("measure_humidity")) {
-      this.registerHumidityCapability();
-    }
 
     if (capabilities.includes("alarm_water")) {
       this.registerWaterAlarmCapability();

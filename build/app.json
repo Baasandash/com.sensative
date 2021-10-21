@@ -42,14 +42,14 @@
     ]
   },
   "author": {
-    "name": "Baasandash Damdinbazar",
-    "email": "baasandash@sensative.com"
+    "name": "Marcel Veldhuizen",
+    "email": "marcel@thorarin.net"
   },
   "contributors": {
     "developers": [
       {
-        "name": "Marcel Veldhuizen",
-        "email": "marcel@thorarin.net"
+        "name": "Baasandash Damdinbazar",
+        "email": "baasandash@sensative.com"
       },
       {
         "name": "Dhiraj Paryani",
@@ -138,6 +138,170 @@
         "small": "/drivers/1101011/assets/images/small.jpg"
       },
       "id": "1101011",
+      "settings": [
+        {
+          "id": "report_type",
+          "zwave": {
+            "index": 1,
+            "size": 1
+          },
+          "label": {
+            "en": "Notification type",
+            "nl": "Notificatietype"
+          },
+          "hint": {
+            "en": "Z-Wave command class used for reporting contact sensor events. Notification is typically best.",
+            "nl": "Z-Wave command class die gebruikt wordt voor rapportages van de contactsensor. Notification heeft meestal de voorkeur."
+          },
+          "type": "dropdown",
+          "value": "1",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Binary Sensor",
+                "nl": "Binary Sensor"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Notification",
+                "nl": "Notification"
+              }
+            }
+          ]
+        },
+        {
+          "id": "led_indication",
+          "zwave": {
+            "index": 2,
+            "size": 1
+          },
+          "label": {
+            "en": "LED indication",
+            "nl": "led-indicatie"
+          },
+          "hint": {
+            "en": "When enabled, the LED on Strips will flash shortly when the door/window is opened.",
+            "nl": "Wanneer ingeschakeld zal de led op Strips kort oplichten als de deur of het raam wordt geopened."
+          },
+          "type": "checkbox",
+          "value": true
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Capabilities",
+            "nl": "Functies"
+          },
+          "children": [
+            {
+              "id": "tamper_alarm",
+              "label": {
+                "en": "Tamper alarm",
+                "nl": "Sabotage-alarm"
+              },
+              "hint": {
+                "en": "Used to show or hide the tamper alarm capability.",
+                "nl": "Hiermee kan de sabotage-alarmfunctie getoond of verborgen worden."
+              },
+              "type": "checkbox",
+              "value": true
+            },
+            {
+              "id": "maintenance_actions",
+              "label": {
+                "en": "Maintenance actions",
+                "nl": "Maintenance actions"
+              },
+              "hint": {
+                "en": "Disabling this hides maintenance actions on this device. Maintenance actions are known to confuse HomeyKit, classifying the sensor as a switch.",
+                "nl": "Wanneer uitgeschakeld worden de onderhoudsacties voor dit apparaat verborgen. Onderhoudsacties verwarren HomeyKit, waardoor de sensor als schakelaar geclassificeerd wordt."
+              },
+              "type": "checkbox",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Strips Guard 700"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "measure_battery",
+        "alarm_battery",
+        "alarm_contact",
+        "alarm_tamper",
+        "button.reset_tamper_alarm"
+      ],
+      "capabilitiesOptions": {
+        "button.reset_tamper_alarm": {
+          "maintenanceAction": true,
+          "title": {
+            "en": "Reset tamper alarm",
+            "nl": "Sabotage-alarm resetten"
+          },
+          "desc": {
+            "en": "Manually reset the tamper alarm after it has been triggered.",
+            "nl": "Schakel het sabotage-alarm handmatig uit nadat deze is getriggerd."
+          }
+        }
+      },
+      "energy": {
+        "batteries": [
+          "INTERNAL"
+        ]
+      },
+      "images": {
+        "small": "/drivers/guard-700/assets/images/small.png",
+        "large": "/drivers/guard-700/assets/images/large.png",
+        "xlarge": "/drivers/guard-700/assets/images/xlarge.png"
+      },
+      "zwave": {
+        "manufacturerId": 410,
+        "productTypeId": 4,
+        "productId": 4,
+        "wakeUpInterval": 43200,
+        "learnmode": {
+          "image": "/drivers/1102011/assets/wakeup.svg",
+          "instruction": {
+            "en": "To Add Strips to Your Homey hub\n\n1. Remove both magnets from Strips*\n2. The application may ask for the PIN code or the QR code scan. The PIN code is the first five digits of the DSK code\n\n*If you have previously removed the magnets from Strips, or need to re-add the device, performing a manual wake-up will join the device when the controller is in pairing mode\n\nManual Wake-Up:\n1. Place the magnet on the rounded end then remove it and observe the LED blink once\n2. Repeat 3 times in 10 seconds\n\nOne long LED blink means Strips has been successfully added to your Z-Wave network"
+          }
+        },
+        "unlearnmode": {
+          "image": "/drivers/guard-700/assets/learnmode.png",
+          "instruction": {
+            "en": "Performing a manual wake-up will remove the device when the controller is in un-pairing mode\n\nManual Wake-Up:\n1. Place the magnet on the rounded end then remove it and observe the LED blink once\n2. Repeat 3 times in 10 seconds\n\nOne long LED blink means Strips has been successfully removed from your Z-Wave network"
+          }
+        },
+        "associationGroups": [
+          1
+        ],
+        "associationGroupsOptions": {
+          "1": {
+            "hint": {
+              "en": "Z-Wave Plus Lifeline"
+            }
+          }
+        },
+        "defaultConfiguration": [
+          {
+            "id": 1,
+            "size": 1,
+            "value": 1
+          },
+          {
+            "id": 2,
+            "size": 1,
+            "value": 1
+          }
+        ]
+      },
+      "id": "1101021",
       "settings": [
         {
           "id": "report_type",
@@ -703,7 +867,31 @@
     },
     {
       "name": {
-        "en": "Comfort 700"
+        "en": "Strips Comfort 700",
+        "nl": "Strips Comfort"
+      },
+      "zwave": {
+        "manufacturerId": 410,
+        "productTypeId": 4,
+        "productId": 12,
+        "wakeUpInterval": 43200,
+        "learnmode": {
+          "image": "/drivers/1102011/assets/wakeup.svg",
+          "instruction": {
+            "en": "Place the round magnet at the rounded edge. When the LED blinks, move the magnet away. Repeat 3 times within 10 seconds.",
+            "nl": "Plaats de ronde magneet op de afgeronde zijde. Haal de magneet weer weg als de LED knippert. Herhaal 3 keer binnen 10 seconden."
+          }
+        },
+        "associationGroups": [
+          1
+        ],
+        "associationGroupsOptions": {
+          "1": {
+            "hint": {
+              "en": "Z-Wave Plus Lifeline"
+            }
+          }
+        }
       },
       "class": "sensor",
       "capabilities": [
@@ -711,12 +899,10 @@
         "measure_luminance",
         "measure_humidity",
         "alarm_heat",
-        "alarm_water",
         "measure_battery",
         "alarm_battery",
         "alarm_tamper",
         "button.reset_heat_alarm",
-        "button.reset_water_alarm",
         "button.reset_tamper_alarm"
       ],
       "capabilitiesOptions": {
@@ -729,17 +915,6 @@
           "desc": {
             "en": "Manually reset the heat alarm after it has been triggered.",
             "nl": "Schakel het hitte-alarm handmatig uit nadat deze is getriggerd."
-          }
-        },
-        "button.reset_water_alarm": {
-          "maintenanceAction": true,
-          "title": {
-            "en": "Reset water alarm",
-            "nl": "wateralarm resetten"
-          },
-          "desc": {
-            "en": "Manually reset the water alarm after it has been triggered.",
-            "nl": "Schakel het wateralarm handmatig uit nadat deze is getriggerd."
           }
         },
         "button.reset_tamper_alarm": {
@@ -760,39 +935,10 @@
         ]
       },
       "images": {
-        "small": "/drivers/comfort-700/assets/images/small.png",
-        "large": "/drivers/comfort-700/assets/images/large.png",
-        "xlarge": "/drivers/comfort-700/assets/images/xlarge.png"
+        "large": "/drivers/1102011/assets/images/large.jpg",
+        "small": "/drivers/1102011/assets/images/small.jpg"
       },
-      "zwave": {
-        "manufacturerId": 410,
-        "productTypeId": 4,
-        "productId": 12,
-        "wakeUpInterval": 43200,
-        "associationGroups": [
-          1
-        ],
-        "associationGroupsOptions": {
-          "1": {
-            "hint": {
-              "en": "Z-Wave Plus Lifeline"
-            }
-          }
-        },
-        "learnmode": {
-          "image": "/drivers/comfort-700/assets/learnmode.png",
-          "instruction": {
-            "en": "To Add Strips to Your Homey hub\n\n1. Remove both magnets from Strips*\n2. The application may ask for the PIN code or the QR code scan. The PIN code is the first five digits of the DSK code\n\n*If you have previously removed the magnets from Strips, or need to re-add the device, performing a manual wake-up will join the device when the controller is in pairing mode\n\nManual Wake-Up:\n1. Place the magnet on the rounded end then remove it and observe the LED blink once\n2. Repeat 3 times in 10 seconds\n\nOne long LED blink means Strips has been successfully added to your Z-Wave network"
-          }
-        },
-        "unlearnmode": {
-          "image": "/drivers/comfort-700/assets/learnmode.png",
-          "instruction": {
-            "en": "Performing a manual wake-up will remove the device when the controller is in un-pairing mode\n\nManual Wake-Up:\n1. Place the magnet on the rounded end then remove it and observe the LED blink once\n2. Repeat 3 times in 10 seconds\n\nOne long LED blink means Strips has been successfully removed from your Z-Wave network"
-          }
-        }
-      },
-      "id": "comfort-700",
+      "id": "1102021",
       "settings": [
         {
           "id": "led_indication",
@@ -908,7 +1054,7 @@
                 "nl": "Temperatuuralarmering"
               },
               "type": "checkbox",
-              "value": false
+              "value": true
             },
             {
               "id": "temperature_high",
@@ -925,7 +1071,7 @@
                 "nl": "-20 tot +60 graden Celsius"
               },
               "type": "number",
-              "value": 60,
+              "value": 30,
               "attr": {
                 "min": -20,
                 "max": 60
@@ -946,7 +1092,7 @@
                 "nl": "-20 tot +60 graden Celcius"
               },
               "type": "number",
-              "value": -20,
+              "value": 0,
               "attr": {
                 "min": -20,
                 "max": 60
@@ -1053,40 +1199,6 @@
           },
           "children": [
             {
-              "id": "leakage_alarm",
-              "zwave": {
-                "index": 12,
-                "size": 1
-              },
-              "label": {
-                "en": "Leakage alarm",
-                "nl": "Lekkage-alarm"
-              },
-              "type": "checkbox",
-              "value": true
-            },
-            {
-              "id": "leakage_alarm_level",
-              "zwave": {
-                "index": 13,
-                "size": 1
-              },
-              "label": {
-                "en": "Leakage alarm level",
-                "nl": "Lekkage-alarm level"
-              },
-              "hint": {
-                "en": "1 to 100\r\n(1=almost dry, 100=wet)",
-                "nl": "1 tot 100\r\n(1=Bijna droog, 100=nat)"
-              },
-              "type": "number",
-              "value": 10,
-              "attr": {
-                "min": 1,
-                "max": 100
-              }
-            },
-            {
               "id": "humidity_reporting_interval",
               "zwave": {
                 "index": 14,
@@ -1123,37 +1235,22 @@
                 "nl": "Apparaattype"
               },
               "hint": {
-                "en": "Used to show or hide measurement capabilities of the Strips Comfort and Drip, which are identical on an electronics level.\r\nHybrid: All measurement capabilities are shown.\r\nComfort: Only temperature and light measurement capabilities are shown.\r\nDrip: Only temperature and humidity measurement capabilities are shown.",
-                "nl": "Hiermee kunnen meetfuncties van de Strips Comfort en Drop (die identiek zijn op elektronica-niveau) getoond of verborgen worden.\r\nHybride: alle meetfuncties worden getoond.\r\nComfort: enkel temperatuur- en lichtmeetfuncties worden getoond.\r\nDrip: enkel temperatuur- en vochtigheidmeetfuncties worden getoond."
+                "en": "Used to show or hide measurement capabilities of the Strips Comfort, which are identical on an electronics level.\r\nComfort: Only temperature and light measurement capabilities are shown.\r\nDrip: Only temperature and humidity measurement capabilities are shown."
               },
               "type": "dropdown",
-              "value": "hybrid",
+              "value": "1",
               "values": [
-                {
-                  "id": "hybrid",
-                  "label": {
-                    "en": "Comfort/Drip Hybrid",
-                    "nl": "Comfort/Drip-hybride"
-                  }
-                },
                 {
                   "id": "comfort",
                   "label": {
                     "en": "Comfort",
                     "nl": "Comfort"
                   }
-                },
-                {
-                  "id": "drip",
-                  "label": {
-                    "en": "Drip",
-                    "nl": "Drip"
-                  }
                 }
               ]
             },
             {
-              "value": false,
+              "value": true,
               "id": "tamper_alarm",
               "label": {
                 "en": "Tamper alarm",
@@ -1183,371 +1280,75 @@
       ]
     },
     {
-      "id": "drip-700",
       "name": {
-        "en": "Drip 700"
-      },
-      "class": "sensor",
-      "capabilities": [
-        "measure_battery",
-        "alarm_heat",
-        "alarm_tamper",
-        "measure_temperature",
-        "alarm_water",
-        "measure_water"
-      ],
-      "energy": {
-        "batteries": [
-          "INTERNAL"
-        ]
-      },
-      "images": {
-        "small": "/drivers/drip-700/assets/images/small.png",
-        "large": "/drivers/drip-700/assets/images/large.png",
-        "xlarge": "/drivers/drip-700/assets/images/xlarge.png"
+        "en": "Strips Drip 700",
+        "nl": "Strips Drip 700"
       },
       "zwave": {
         "manufacturerId": 410,
-        "productTypeId": [
-          4
-        ],
-        "productId": [
-          11
-        ],
+        "productTypeId": 4,
+        "productId": 11,
         "wakeUpInterval": 43200,
         "learnmode": {
-          "image": "/drivers/drip-700/assets/learnmode.png",
+          "image": "/drivers/1102011/assets/wakeup.svg",
           "instruction": {
-            "en": "To Add Strips to Your Homey hub\n\n1. Remove both magnets from Strips*\n2. The application may ask for the PIN code or the QR code scan. The PIN code is the first five digits of the DSK code\n\n*If you have previously removed the magnets from Strips, or need to re-add the device, performing a manual wake-up will join the device when the controller is in pairing mode\n\nManual Wake-Up:\n1. Place the magnet on the rounded end then remove it and observe the LED blink once\n2. Repeat 3 times in 10 seconds\n\nOne long LED blink means Strips has been successfully added to your Z-Wave network"
+            "en": "Place the round magnet at the rounded edge. When the LED blinks, move the magnet away. Repeat 3 times within 10 seconds.",
+            "nl": "Plaats de ronde magneet op de afgeronde zijde. Haal de magneet weer weg als de LED knippert. Herhaal 3 keer binnen 10 seconden."
           }
         },
         "unlearnmode": {
-          "image": "/drivers/drip-700/assets/learnmode.png",
+          "image": "/drivers/1102011/assets/wakeup.svg",
           "instruction": {
             "en": "Performing a manual wake-up will remove the device when the controller is in un-pairing mode\n\nManual Wake-Up:\n1. Place the magnet on the rounded end then remove it and observe the LED blink once\n2. Repeat 3 times in 10 seconds\n\nOne long LED blink means Strips has been successfully removed from your Z-Wave network"
           }
-        }
-      },
-      "settings": [
-        {
-          "id": "led",
-          "type": "number",
-          "label": {
-            "en": "LED alarm event reporting"
-          },
-          "value": 1,
-          "attr": {
-            "min": 0,
-            "max": 1
-          },
-          "hint": {
-            "en": "Turn On or Off LED for specific event indications (ex. alarms)"
-          },
-          "zwave": {
-            "index": 2,
-            "size": 1
-          }
         },
-        {
-          "id": "temperature_reporting_type",
-          "type": "number",
-          "label": {
-            "en": "Temperature reporting type"
-          },
-          "value": 0,
-          "attr": {
-            "min": 0,
-            "max": 3
-          },
-          "hint": {
-            "en": "Turn On or Off the temperature sensor value reporting(Does not affect temperature alarms.)"
-          },
-          "zwave": {
-            "index": 4,
-            "size": 1
-          }
-        },
-        {
-          "id": "temperature_reporting_unit",
-          "type": "number",
-          "label": {
-            "en": "Temperature reporting unit"
-          },
-          "value": 0,
-          "attr": {
-            "min": 0,
-            "max": 1
-          },
-          "hint": {
-            "en": "Select the temperature unit"
-          },
-          "zwave": {
-            "index": 6,
-            "size": 1
-          }
-        },
-        {
-          "id": "temperature_alarm",
-          "type": "number",
-          "label": {
-            "en": "Temperature alarms"
-          },
-          "value": 0,
-          "attr": {
-            "min": 0,
-            "max": 1
-          },
-          "hint": {
-            "en": "Turn On or Off the temperature alarm"
-          },
-          "zwave": {
-            "index": 6,
-            "size": 1
-          }
-        },
-        {
-          "id": "high_temperature_alarm_level",
-          "type": "number",
-          "label": {
-            "en": "Select a high temperature alarm level"
-          },
-          "value": 40,
-          "attr": {
-            "min": -20,
-            "max": 80
-          },
-          "hint": {
-            "en": "Select a high temperature alarm level (Degree C)"
-          },
-          "zwave": {
-            "index": 7,
-            "size": 1
-          }
-        },
-        {
-          "id": "low_temperature_alarm_level",
-          "type": "number",
-          "label": {
-            "en": "Low temperature alarm level"
-          },
-          "value": 5,
-          "attr": {
-            "min": -20,
-            "max": 60
-          },
-          "hint": {
-            "en": "Select a low temperature alarm level"
-          },
-          "zwave": {
-            "index": 8,
-            "size": 1
-          }
-        },
-        {
-          "id": "leakage_alarm",
-          "type": "number",
-          "label": {
-            "en": "Leakage/moisture alarm"
-          },
-          "value": 1,
-          "attr": {
-            "min": 0,
-            "max": 1
-          },
-          "hint": {
-            "en": "Turn the Leakage Alarm to On or Off"
-          },
-          "zwave": {
-            "index": 12,
-            "size": 1
-          }
-        },
-        {
-          "id": "leakage_alarm_level",
-          "type": "number",
-          "label": {
-            "en": "Leakage/moisture alarm level"
-          },
-          "value": 10,
-          "attr": {
-            "min": 1,
-            "max": 100
-          },
-          "hint": {
-            "en": "Set the trigger level at which the Leakage Alarm Notification Report will be sent"
-          },
-          "zwave": {
-            "index": 13,
-            "size": 1
-          }
-        },
-        {
-          "id": "moisture_reporting_period",
-          "type": "number",
-          "label": {
-            "en": "Leakage/moisture reporting period"
-          },
-          "value": 0,
-          "attr": {
-            "min": 0,
-            "max": 120
-          },
-          "hint": {
-            "en": "Select the number of hours between moisture reports. Report values between -100 to 100"
-          },
-          "zwave": {
-            "index": 14,
-            "size": 1
-          }
-        },
-        {
-          "id": "activate_supervision",
-          "type": "number",
-          "label": {
-            "en": "Activate supervision"
-          },
-          "value": 1,
-          "attr": {
-            "min": 0,
-            "max": 2
-          },
-          "hint": {
-            "en": "Activate Supervision command for only important alarm events or all events (*Supervised commands require a confirmation from the gateway when a notification is received)"
-          },
-          "zwave": {
-            "index": 15,
-            "size": 1
-          }
-        },
-        {
-          "id": "fibaro_workaround_setting",
-          "type": "number",
-          "label": {
-            "en": "Wake-Up moisture polling workaround for Fibaro Gateway users"
-          },
-          "value": 0,
-          "attr": {
-            "min": 0,
-            "max": 1
-          },
-          "hint": {
-            "en": "Turn On or Off Moisture reporting during polling (applicable only for Fibaro gateway users)"
-          },
-          "zwave": {
-            "index": 20,
-            "size": 1
-          }
-        },
-        {
-          "id": "leakage_sensor_calibration",
-          "type": "number",
-          "label": {
-            "en": "Perform leakage/moisture sensor calibration"
-          },
-          "value": 0,
-          "attr": {
-            "min": 0,
-            "max": 1
-          },
-          "hint": {
-            "en": "Should be performed when Drip is mounted correctly and absolutely dry to calibrate the \"zero-level\". A MultiLevel Sensor Report with the Moisture value is sent after the calibration is performed"
-          },
-          "zwave": {
-            "index": 23,
-            "size": 1
-          }
-        },
-        {
-          "id": "temperature_offset",
-          "type": "number",
-          "label": {
-            "en": "Temperature offset"
-          },
-          "value": 0,
-          "attr": {
-            "min": -100,
-            "max": 100
-          },
-          "hint": {
-            "en": "The offset value is used to calibrate the 1 byte temperature reports in the actual temperature. [=-10.0 to +10.0 (Degree C)]"
-          },
-          "zwave": {
-            "index": 24,
-            "size": 1
-          }
-        },
-        {
-          "id": "temperature_reporting_period",
-          "type": "number",
-          "label": {
-            "en": "Temperature reporting period"
-          },
-          "value": 1440,
-          "attr": {
-            "min": 15,
-            "max": 1440
-          },
-          "hint": {
-            "en": "Select the number of minutes between the temperature reports (15 minutes to 24 hours) (Used for parameter 4)"
-          },
-          "zwave": {
-            "index": 25,
-            "size": 2
-          }
-        },
-        {
-          "id": "temperature_delta",
-          "type": "number",
-          "label": {
-            "en": "Temperature delta"
-          },
-          "value": 20,
-          "attr": {
-            "min": 5,
-            "max": 100
-          },
-          "hint": {
-            "en": "A new temperature report is sent when the temperature has changed more than the delta value. Input value converted to one decimal place. [=0.5 to 10.0 (Degree C)]"
-          },
-          "zwave": {
-            "index": 26,
-            "size": 1
-          }
-        },
-        {
-          "id": "temperature_hysteresis",
-          "type": "number",
-          "label": {
-            "en": "Temperature hysteresis for temperature alarms"
-          },
-          "value": 20,
-          "attr": {
-            "min": 5,
-            "max": 100
-          },
-          "hint": {
-            "en": "Triggers alarm clear reports (See parameters 7&8). Input value converted to one decimal place.  [=0.5 to 10.0 (Degree C)]"
-          },
-          "zwave": {
-            "index": 27,
-            "size": 1
+        "associationGroups": [
+          1
+        ],
+        "associationGroupsOptions": {
+          "1": {
+            "hint": {
+              "en": "Z-Wave Plus Lifeline"
+            }
           }
         }
-      ]
-    },
-    {
-      "name": {
-        "en": "Guard 700"
       },
       "class": "sensor",
       "capabilities": [
         "measure_battery",
         "alarm_battery",
-        "alarm_contact",
+        "measure_temperature",
+        "alarm_heat",
+        "button.reset_heat_alarm",
+        "measure_humidity",
+        "alarm_water",
+        "button.reset_water_alarm",
         "alarm_tamper",
         "button.reset_tamper_alarm"
       ],
       "capabilitiesOptions": {
+        "button.reset_heat_alarm": {
+          "maintenanceAction": true,
+          "title": {
+            "en": "Reset heat alarm",
+            "nl": "Hitte-alarm resetten"
+          },
+          "desc": {
+            "en": "Manually reset the heat alarm after it has been triggered.",
+            "nl": "Schakel het hitte-alarm handmatig uit nadat deze is getriggerd."
+          }
+        },
+        "button.reset_water_alarm": {
+          "maintenanceAction": true,
+          "title": {
+            "en": "Reset water alarm",
+            "nl": "wateralarm resetten"
+          },
+          "desc": {
+            "en": "Manually reset the water alarm after it has been triggered.",
+            "nl": "Schakel het wateralarm handmatig uit nadat deze is getriggerd."
+          }
+        },
         "button.reset_tamper_alarm": {
           "maintenanceAction": true,
           "title": {
@@ -1566,85 +1367,11 @@
         ]
       },
       "images": {
-        "small": "/drivers/guard-700/assets/images/small.png",
-        "large": "/drivers/guard-700/assets/images/large.png",
-        "xlarge": "/drivers/guard-700/assets/images/xlarge.png"
+        "large": "/drivers/1102011/assets/images/large.jpg",
+        "small": "/drivers/1102011/assets/images/small.jpg"
       },
-      "zwave": {
-        "manufacturerId": 410,
-        "productTypeId": 4,
-        "productId": 4,
-        "wakeUpInterval": 43200,
-        "learnmode": {
-          "image": "/drivers/guard-700/assets/learnmode.png",
-          "instruction": {
-            "en": "To Add Strips to Your Homey hub\n\n1. Remove both magnets from Strips*\n2. The application may ask for the PIN code or the QR code scan. The PIN code is the first five digits of the DSK code\n\n*If you have previously removed the magnets from Strips, or need to re-add the device, performing a manual wake-up will join the device when the controller is in pairing mode\n\nManual Wake-Up:\n1. Place the magnet on the rounded end then remove it and observe the LED blink once\n2. Repeat 3 times in 10 seconds\n\nOne long LED blink means Strips has been successfully added to your Z-Wave network"
-          }
-        },
-        "unlearnmode": {
-          "image": "/drivers/guard-700/assets/learnmode.png",
-          "instruction": {
-            "en": "Performing a manual wake-up will remove the device when the controller is in un-pairing mode\n\nManual Wake-Up:\n1. Place the magnet on the rounded end then remove it and observe the LED blink once\n2. Repeat 3 times in 10 seconds\n\nOne long LED blink means Strips has been successfully removed from your Z-Wave network"
-          }
-        },
-        "associationGroups": [
-          1
-        ],
-        "associationGroupsOptions": {
-          "1": {
-            "hint": {
-              "en": "Z-Wave Plus Lifeline"
-            }
-          }
-        },
-        "defaultConfiguration": [
-          {
-            "id": 1,
-            "size": 1,
-            "value": 1
-          },
-          {
-            "id": 2,
-            "size": 1,
-            "value": 1
-          }
-        ]
-      },
-      "id": "guard-700",
+      "id": "1104021",
       "settings": [
-        {
-          "id": "report_type",
-          "zwave": {
-            "index": 1,
-            "size": 1
-          },
-          "label": {
-            "en": "Notification type",
-            "nl": "Notificatietype"
-          },
-          "hint": {
-            "en": "Z-Wave command class used for reporting contact sensor events. Notification is typically best.",
-            "nl": "Z-Wave command class die gebruikt wordt voor rapportages van de contactsensor. Notification heeft meestal de voorkeur."
-          },
-          "type": "dropdown",
-          "value": "1",
-          "values": [
-            {
-              "id": "0",
-              "label": {
-                "en": "Binary Sensor",
-                "nl": "Binary Sensor"
-              }
-            },
-            {
-              "id": "1",
-              "label": {
-                "en": "Notification",
-                "nl": "Notification"
-              }
-            }
-          ]
-        },
         {
           "id": "led_indication",
           "zwave": {
@@ -1652,15 +1379,158 @@
             "size": 1
           },
           "label": {
-            "en": "LED indication",
-            "nl": "led-indicatie"
-          },
-          "hint": {
-            "en": "When enabled, the LED on Strips will flash shortly when the door/window is opened.",
-            "nl": "Wanneer ingeschakeld zal de led op Strips kort oplichten als de deur of het raam wordt geopened."
+            "en": "LED alarm event reporting",
+            "nl": "LED alarm event rapportage"
           },
           "type": "checkbox",
           "value": true
+        },
+        {
+          "id": "reporting_frequency",
+          "zwave": {
+            "index": 3,
+            "size": 1
+          },
+          "label": {
+            "en": "Temperature & Light reporting frequency",
+            "nl": "Temperatuur & Light rapportage frequency"
+          },
+          "hint": {
+            "en": "Refer to the Sensative support site for details on how this affects the accuracy, number of reports and battery life",
+            "nl": "Kijk op de Sensative support site voor informatie over hoe dit accuraatheid, aantal rapportages en levensduur van de batterij beïnvloedt"
+          },
+          "type": "dropdown",
+          "value": "1",
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Normal",
+                "nl": "Normaal"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Frequent",
+                "nl": "Frequent"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Temperature",
+            "nl": "Temperatuur"
+          },
+          "children": [
+            {
+              "id": "temperature_reporting",
+              "zwave": {
+                "index": 4,
+                "size": 1
+              },
+              "label": {
+                "en": "Temperature reporting",
+                "nl": "Temperatuur rapportage"
+              },
+              "hint": {
+                "en": "Does not affect temperature alarms",
+                "nl": "Heeft geen invloed op temperatuuralarmering"
+              },
+              "type": "checkbox",
+              "value": true
+            },
+            {
+              "id": "temperature_unit",
+              "zwave": {
+                "index": 5,
+                "size": 1
+              },
+              "label": {
+                "en": "Temperature reporting unit",
+                "nl": "Temperatuur rapportage-eenheid"
+              },
+              "hint": {
+                "en": "This has no effect on how Homey displays the temperature",
+                "nl": "Dit heeft geen invloed op hoe Homey de temperatuur weergeeft"
+              },
+              "type": "dropdown",
+              "value": "0",
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "Celcius",
+                    "nl": "Celcius"
+                  }
+                },
+                {
+                  "id": "1",
+                  "label": {
+                    "en": "Fahrenheit",
+                    "nl": "Fahrenheit"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "temperature_alarms",
+              "zwave": {
+                "index": 6,
+                "size": 1
+              },
+              "label": {
+                "en": "Temperature alarms",
+                "nl": "Temperatuuralarmering"
+              },
+              "type": "checkbox",
+              "value": true
+            },
+            {
+              "id": "temperature_high",
+              "zwave": {
+                "index": 7,
+                "size": 1
+              },
+              "label": {
+                "en": "High temperature alarm level",
+                "nl": "Hoge temperatuur alarm niveau"
+              },
+              "hint": {
+                "en": "-20 to +60 degrees Celcius",
+                "nl": "-20 tot +60 graden Celsius"
+              },
+              "type": "number",
+              "value": 60,
+              "attr": {
+                "min": -20,
+                "max": 60
+              }
+            },
+            {
+              "id": "temperature_low",
+              "zwave": {
+                "index": 8,
+                "size": 1
+              },
+              "label": {
+                "en": "Low temperature alarm level",
+                "nl": "Lage temperatuur alarm niveau"
+              },
+              "hint": {
+                "en": "-20 to +60 degrees Celcius",
+                "nl": "-20 tot +60 graden Celcius"
+              },
+              "type": "number",
+              "value": -20,
+              "attr": {
+                "min": -20,
+                "max": 60
+              }
+            }
+          ]
         },
         {
           "type": "group",
@@ -1670,6 +1540,28 @@
           },
           "children": [
             {
+              "id": "device_type",
+              "label": {
+                "en": "Device type",
+                "nl": "Apparaattype"
+              },
+              "hint": {
+                "en": "Used to show or hide measurement capabilities of the Strips Drip, which are identical on an electronics level.\r\nDrip: Only temperature and water measurement capabilities are shown."
+              },
+              "type": "dropdown",
+              "value": "1",
+              "values": [
+                {
+                  "id": "drip",
+                  "label": {
+                    "en": "Drip",
+                    "nl": "Drip"
+                  }
+                }
+              ]
+            },
+            {
+              "value": true,
               "id": "tamper_alarm",
               "label": {
                 "en": "Tamper alarm",
@@ -1679,8 +1571,7 @@
                 "en": "Used to show or hide the tamper alarm capability.",
                 "nl": "Hiermee kan de sabotage-alarmfunctie getoond of verborgen worden."
               },
-              "type": "checkbox",
-              "value": true
+              "type": "checkbox"
             },
             {
               "id": "maintenance_actions",

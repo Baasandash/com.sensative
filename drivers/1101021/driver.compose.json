@@ -1,6 +1,6 @@
 {
   "name": {
-    "en": "Guard 700"
+    "en": "Strips Guard 700"
   },
   "class": "sensor",
   "capabilities": [
@@ -37,7 +37,7 @@
     "productId": 4,
     "wakeUpInterval": 43200,
     "learnmode": {
-      "image": "/drivers/guard-700/assets/learnmode.png",
+      "image": "/drivers/1102011/assets/wakeup.svg",
       "instruction": {
         "en": "To Add Strips to Your Homey hub\n\n1. Remove both magnets from Strips*\n2. The application may ask for the PIN code or the QR code scan. The PIN code is the first five digits of the DSK code\n\n*If you have previously removed the magnets from Strips, or need to re-add the device, performing a manual wake-up will join the device when the controller is in pairing mode\n\nManual Wake-Up:\n1. Place the magnet on the rounded end then remove it and observe the LED blink once\n2. Repeat 3 times in 10 seconds\n\nOne long LED blink means Strips has been successfully added to your Z-Wave network"
       }

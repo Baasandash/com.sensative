@@ -113,7 +113,7 @@
           "nl": "Temperatuuralarmering"
         },
         "type": "checkbox",
-        "value": false
+        "value": true
       },
       {
         "id": "temperature_high",
@@ -130,7 +130,7 @@
           "nl": "-20 tot +60 graden Celsius"
         },
         "type": "number",
-        "value": 60,
+        "value": 30,
         "attr": {
           "min": -20,
           "max": 60
@@ -151,7 +151,7 @@
           "nl": "-20 tot +60 graden Celcius"
         },
         "type": "number",
-        "value": -20,
+        "value": 0,
         "attr": {
           "min": -20,
           "max": 60
@@ -258,40 +258,6 @@
     },
     "children": [
       {
-        "id": "leakage_alarm",
-        "zwave": {
-          "index": 12,
-          "size": 1
-        },
-        "label": {
-          "en": "Leakage alarm",
-          "nl": "Lekkage-alarm"
-        },
-        "type": "checkbox",
-        "value": true
-      },
-      {
-        "id": "leakage_alarm_level",
-        "zwave": {
-          "index": 13,
-          "size": 1
-        },
-        "label": {
-          "en": "Leakage alarm level",
-          "nl": "Lekkage-alarm level"
-        },
-        "hint": {
-          "en": "1 to 100\r\n(1=almost dry, 100=wet)",
-          "nl": "1 tot 100\r\n(1=Bijna droog, 100=nat)"
-        },
-        "type": "number",
-        "value": 10,
-        "attr": {
-          "min": 1,
-          "max": 100
-        }
-      },
-      {
         "id": "humidity_reporting_interval",
         "zwave": {
           "index": 14,
@@ -328,38 +294,23 @@
           "nl": "Apparaattype"
         },
         "hint": {
-          "en": "Used to show or hide measurement capabilities of the Strips Comfort and Drip, which are identical on an electronics level.\r\nHybrid: All measurement capabilities are shown.\r\nComfort: Only temperature and light measurement capabilities are shown.\r\nDrip: Only temperature and humidity measurement capabilities are shown.",
-          "nl": "Hiermee kunnen meetfuncties van de Strips Comfort en Drop (die identiek zijn op elektronica-niveau) getoond of verborgen worden.\r\nHybride: alle meetfuncties worden getoond.\r\nComfort: enkel temperatuur- en lichtmeetfuncties worden getoond.\r\nDrip: enkel temperatuur- en vochtigheidmeetfuncties worden getoond."
+          "en": "Used to show or hide measurement capabilities of the Strips Comfort, which are identical on an electronics level.\r\nComfort: Only temperature and light measurement capabilities are shown.\r\nDrip: Only temperature and humidity measurement capabilities are shown."
         },
         "type": "dropdown",
-        "value": "hybrid",
+        "value": "1",
         "values": [
-          {
-            "id": "hybrid",
-            "label": {
-              "en": "Comfort/Drip Hybrid",
-              "nl": "Comfort/Drip-hybride"
-            }
-          },
           {
             "id": "comfort",
             "label": {
               "en": "Comfort",
               "nl": "Comfort"
             }
-          },
-          {
-            "id": "drip",
-            "label": {
-              "en": "Drip",
-              "nl": "Drip"
-            }
           }
         ]
       },
       {
         "$extends": "tamperAlarm",
-        "value": false
+        "value": true
       },
       {
         "$extends": "maintenanceActions"

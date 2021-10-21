@@ -1,0 +1,88 @@
+{
+  "name": {
+    "en": "Strips Drip 700",
+    "nl": "Strips Drip 700"
+  },
+  "zwave": {
+    "manufacturerId": 410,
+    "productTypeId": 4,
+    "productId": 11,
+    "wakeUpInterval": 43200,
+    "learnmode": {
+      "image": "/drivers/1102011/assets/wakeup.svg",
+      "instruction": {
+        "en": "Place the round magnet at the rounded edge. When the LED blinks, move the magnet away. Repeat 3 times within 10 seconds.",
+        "nl": "Plaats de ronde magneet op de afgeronde zijde. Haal de magneet weer weg als de LED knippert. Herhaal 3 keer binnen 10 seconden."
+      }
+    },
+    "unlearnmode": {
+      "image": "/drivers/1102011/assets/wakeup.svg",
+      "instruction": {
+        "en": "Performing a manual wake-up will remove the device when the controller is in un-pairing mode\n\nManual Wake-Up:\n1. Place the magnet on the rounded end then remove it and observe the LED blink once\n2. Repeat 3 times in 10 seconds\n\nOne long LED blink means Strips has been successfully removed from your Z-Wave network"
+      }
+    },
+    "associationGroups": [1],
+    "associationGroupsOptions": {
+      "1": {
+        "hint": {
+          "en": "Z-Wave Plus Lifeline"
+        }
+      }
+    }
+  },
+  "class": "sensor",
+  "capabilities": [
+    "measure_battery",
+    "alarm_battery",
+    "measure_temperature",
+    "alarm_heat",
+    "button.reset_heat_alarm",
+    "measure_humidity",
+    "alarm_water",
+    "button.reset_water_alarm",
+    "alarm_tamper",
+    "button.reset_tamper_alarm"
+  ],
+  "capabilitiesOptions": {
+    "button.reset_heat_alarm": {
+      "maintenanceAction": true,
+      "title": {
+        "en": "Reset heat alarm",
+        "nl": "Hitte-alarm resetten"
+      },
+      "desc": {
+        "en": "Manually reset the heat alarm after it has been triggered.",
+        "nl": "Schakel het hitte-alarm handmatig uit nadat deze is getriggerd."
+      }
+    },
+    "button.reset_water_alarm": {
+      "maintenanceAction": true,
+      "title": {
+        "en": "Reset water alarm",
+        "nl": "wateralarm resetten"
+      },
+      "desc": {
+        "en": "Manually reset the water alarm after it has been triggered.",
+        "nl": "Schakel het wateralarm handmatig uit nadat deze is getriggerd."
+      }
+    },
+    "button.reset_tamper_alarm": {
+      "maintenanceAction": true,
+      "title": {
+        "en": "Reset tamper alarm",
+        "nl": "Sabotage-alarm resetten"
+      },
+      "desc": {
+        "en": "Manually reset the tamper alarm after it has been triggered.",
+        "nl": "Schakel het sabotage-alarm handmatig uit nadat deze is getriggerd."
+      }
+    }
+  },
+  "energy": {
+    "batteries": ["INTERNAL"]
+  },
+  "images": {
+    "large": "/drivers/1102011/assets/images/large.jpg",
+    "small": "/drivers/1102011/assets/images/small.jpg"
+  }
+}

@@ -25,44 +25,29 @@ function luminanceReportParser(report) {
 
 class StripsMultiSensor extends StripsZwaveDevice {
   async onMeshInit() {
-    this.registerSetting(
-      "report_type",
-      (value) => new Buffer([parseInt(value)])
-    );
-    this.registerSetting(
-      "led_indication",
-      (value) => new Buffer([value ? 1 : 0])
-    );
-    const settings = this.getSettings();
     this.registerTemperatureCapability();
     this.registerHeatAlarmCapability();
 
-    await this.registerDynamicCapabilities(settings, true);
+    const settings = this.getSettings();
+    this.registerDynamicCapabilities(settings, true);
     this.registerBatteryCapabilities();
     this.updateMaintenanceActionRegistrations();
   }
 
   determineCapabilityIds(settings) {
     const capabilities = [];
-
-    capabilities.push("measure_temperature", "alarm_heat");
-    if (settings.maintenance_actions) {
-      capabilities.push("button.reset_heat_alarm");
-    }
-
-    if (settings.device_type !== "drip") {
-      capabilities.push("measure_luminance");
-    }
-
-    if (settings.device_type !== "comfort") {
-      capabilities.push("measure_humidity", "alarm_water");
+    capabilities.push("measure_luminance");
+    capabilities.push("measure_humidity");
+    {
+      capabilities.push("measure_temperature", "alarm_heat");
       if (settings.maintenance_actions) {
-        capabilities.push("button.reset_water_alarm");
+        capabilities.push("button.reset_heat_alarm");
       }
     }
 
     return capabilities.concat(super.determineCapabilityIds(settings));
   }
+
   // Changing capabilities here seems to crash the Homey App UI on most occasions.
   // async onSettings(oldSettings, newSettings, changedKeysArr) {
   //   let result = await super.onSettings(oldSettings, newSettings, changedKeysArr);
@@ -114,7 +99,7 @@ class StripsMultiSensor extends StripsZwaveDevice {
   registerHumidityCapability() {
     this.registerCapability("measure_humidity", "SENSOR_MULTILEVEL", {
       reportParser: (report) => {
-        if (report["Sensor Type"] === "Moisture (v5)") {
+        if (report["Sensor Type"] === "Relative humidity (version 2)") {
           return report["Sensor Value (Parsed)"];
         }
         return null;
@@ -125,13 +110,13 @@ class StripsMultiSensor extends StripsZwaveDevice {
     });
   }
 
-  registerWaterAlarmCapability() {
-    this.registerCapability("alarm_water", "NOTIFICATION", {
-      getOpts: {
-        getOnOnline: true,
-      },
-    });
-  }
+  // registerWaterAlarmCapability() {
+  //   this.registerCapability("alarm_water", "NOTIFICATION", {
+  //     getOpts: {
+  //       getOnOnline: true,
+  //     },
+  //   });
+  // }
 
   async registerDynamicCapabilities(settings, initializing) {
     const addedCapabilities = await this.ensureCapabilitiesMatch(
@@ -149,10 +134,6 @@ class StripsMultiSensor extends StripsZwaveDevice {
       this.registerHumidityCapability();
     }
 
-    if (capabilities.includes("alarm_water")) {
-      this.registerWaterAlarmCapability();
-    }
-
     if (capabilities.includes("alarm_tamper")) {
       this.registerTamperAlarmCapability();
     }
@@ -162,8 +143,6 @@ class StripsMultiSensor extends StripsZwaveDevice {
     const maintenanceActions = {
       "button.reset_heat_alarm": () =>
         this.setCapabilityValue("alarm_heat", false),
-      "button.reset_water_alarm": () =>
-        this.setCapabilityValue("alarm_water", false),
       "button.reset_tamper_alarm": () =>
         this.setCapabilityValue("alarm_tamper", false),
     };
