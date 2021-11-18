@@ -1,17 +1,22 @@
 {
   "2.1.3": {
-    "en": "Fixed an issue with Strips Comfort heat alarm.\r\nFixed an issue with humidity reporting for Strips Drip.\r\nAdded maintenance actions to reset alarms manually.\r\nAdded battery information for all supported devices."
+    "en": "Fixed an issue with Strips Comfort heat alarm.\r\nFixed an issue with humidity reporting for Strips Drip.\r\nAdded maintenance actions to reset alarms manually.\r\nAdded battery information for all supported devices.",
+    "nl": "Probleem opgelost met Strips Comfort hittealarm.\r\nProbleem opgelost met vochtigheidsrapportage voor Strips Drip.\r\nOnderhoudsacties toegevoegd om alarmen handmatig te resetten.\r\nBatterij informatie toegevoegd voor alle ondersteunde apparaten."
   },
   "2.0.1": {
-    "en": "Fixed a number of issues with Strips Drip and Strips Comfort"
+    "en": "Fixed a number of issues with Strips Drip and Strips Comfort",
+    "nl": "Een aantal problemen opgelost met Strips Drip en Strips Comfort"
   },
   "2.0.0": {
-    "en": "Support for notification command class for Strips Guard.\r\nUsing this instead of the binary sensor command class should fix an issue with devices with firmware 0.7 or older.\r\nAdd tamper alarm capability for Strips Guard\r\nPreliminary support for Strips Drip and Strips Comfort\r\nUpgraded to Homey SDK 2.0"
+    "en": "Support for notification command class for Strips Guard.\r\nUsing this instead of the binary sensor command class should fix an issue with devices with firmware 0.7 or older.\r\nAdd tamper alarm capability for Strips Guard\r\nPreliminary support for Strips Drip and Strips Comfort\r\nUpgraded to Homey SDK 2.0",
+    "nl": "Ondersteuning voor meldingsopdrachtklasse voor Strips Guard.\r\nHet gebruik van deze in plaats van de binaire sensoropdrachtklasse zou een probleem moeten oplossen met apparaten met firmware 0.7 of ouder.\r\nSabotagealarmfunctie toevoegen voor Strips Guard\r\nVoorlopige ondersteuning voor Strips Drip and Strips Comfort\r\nOpgewaardeerd naar Homey SDK 2.0"
   },
   "1.0.3": {
-    "en": "Z-Wave configuration parameters should be properly initialized upon inclusion now.\r\nRequires Homey 1.0.3 firmware due to an issue in combination with 1.0.1 and 1.0.2 firmwares."
+    "en": "Z-Wave configuration parameters should be properly initialized upon inclusion now.\r\nRequires Homey 1.0.3 firmware due to an issue in combination with 1.0.1 and 1.0.2 firmwares.",
+    "nl": "Z-Wave configuratie parameters zouden nu correct moeten worden geïnitialiseerd bij opname.\r\nVereist Homey 1.0.3 firmware vanwege een probleem in combinatie met 1.0.1 en 1.0.2 firmwares."
   },
   "1.0.1": {
-    "en": "In this initial version, Strips will be set to a simple binary sensor. I'd like to switch to using its default operating mode in the future, which may require the device to be re-added.\r\nThe US version of Strips is not yet recognized. It may be added in a future version (testers needed)."
+    "en": "In this initial version, Strips will be set to a simple binary sensor. I'd like to switch to using its default operating mode in the future, which may require the device to be re-added.\r\nThe US version of Strips is not yet recognized. It may be added in a future version (testers needed).",
+    "nl": "In deze eerste versie worden Strips ingesteld op een eenvoudige binaire sensor. Ik wil in de toekomst graag overschakelen naar de standaardmodus, waarvoor het apparaat mogelijk opnieuw moet worden toegevoegd.\r\nDe Amerikaanse versie van Strips wordt nog niet herkend. Het kan in een toekomstige versie worden toegevoegd (testers nodig)."
   }
 }

@@ -1,7 +1,7 @@
 {
   "name": {
     "en": "Strips Comfort 700",
-    "nl": "Strips Comfort"
+    "nl": "Strips Comfort 700"
   },
   "zwave": {
     "manufacturerId": 410,
@@ -19,7 +19,8 @@
     "associationGroupsOptions": {
       "1": {
         "hint": {
-          "en": "Z-Wave Plus Lifeline"
+          "en": "Z-Wave Plus Lifeline",
+          "nl": "Z-Wave Plus Reddingslijn"
         }
       }
     }
@@ -41,22 +42,22 @@
       "maintenanceAction": true,
       "title": {
         "en": "Reset heat alarm",
-        "nl": "Hitte-alarm resetten"
+        "nl": "Hitte alarm resetten"
       },
       "desc": {
         "en": "Manually reset the heat alarm after it has been triggered.",
-        "nl": "Schakel het hitte-alarm handmatig uit nadat deze is getriggerd."
+        "nl": "Schakel het hitte alarm handmatig uit nadat deze is getriggerd."
       }
     },
     "button.reset_tamper_alarm": {
       "maintenanceAction": true,
       "title": {
         "en": "Reset tamper alarm",
-        "nl": "Sabotage-alarm resetten"
+        "nl": "Sabotage alarm resetten"
       },
       "desc": {
         "en": "Manually reset the tamper alarm after it has been triggered.",
-        "nl": "Schakel het sabotage-alarm handmatig uit nadat deze is getriggerd."
+        "nl": "Schakel het sabotage alarm handmatig uit nadat deze is getriggerd."
       }
     }
   },

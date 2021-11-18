@@ -173,7 +173,8 @@
           "nl": "Apparaattype"
         },
         "hint": {
-          "en": "Used to show or hide measurement capabilities of the Strips Drip, which are identical on an electronics level.\r\nDrip: Only temperature and water measurement capabilities are shown."
+          "en": "Used to show or hide measurement capabilities of the Strips Drip, which are identical on an electronics level.\r\nDrip: Only temperature and water measurement capabilities are shown.",
+          "nl": "Wordt gebruikt om de meetmogelijkheden van de Strips Drip weer te geven of te verbergen, die op elektronicaniveau identiek zijn.\r\nDrip: Alleen de temperatuur- en watermeetmogelijkheden worden weergegeven."
         },
         "type": "dropdown",
         "value": "1",

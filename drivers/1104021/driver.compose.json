@@ -18,14 +18,16 @@
     "unlearnmode": {
       "image": "/drivers/1102011/assets/wakeup.svg",
       "instruction": {
-        "en": "Performing a manual wake-up will remove the device when the controller is in un-pairing mode\n\nManual Wake-Up:\n1. Place the magnet on the rounded end then remove it and observe the LED blink once\n2. Repeat 3 times in 10 seconds\n\nOne long LED blink means Strips has been successfully removed from your Z-Wave network"
+        "en": "Performing a manual wake-up will remove the device when the controller is in un-pairing mode\n\nManual Wake-Up:\n1. Place the magnet on the rounded end then remove it and observe the LED blink once\n2. Repeat 3 times in 10 seconds\n\nOne long LED blink means Strips has been successfully removed from your Z-Wave network",
+        "nl": "Als u een handmatige activering uitvoert, wordt het apparaat verwijderd wanneer de controller zich in de ontkoppelingsmodus bevindt\n\nHandmatige activering:\n1. Plaats de magneet op het afgeronde uiteinde, verwijder deze en kijk hoe de LED eenmaal knippert\n2. Herhaal dit 3 keer in 10 seconden\n\nEen lange LED-knippering betekent dat Strips succesvol is verwijderd uit je Z-Wave netwerk"
       }
     },
     "associationGroups": [1],
     "associationGroupsOptions": {
       "1": {
         "hint": {
-          "en": "Z-Wave Plus Lifeline"
+          "en": "Z-Wave Plus Lifeline",
+          "nl": "Z-Wave Plus Reddingslijn"
         }
       }
     }
@@ -48,11 +50,11 @@
       "maintenanceAction": true,
       "title": {
         "en": "Reset heat alarm",
-        "nl": "Hitte-alarm resetten"
+        "nl": "Hitte alarm resetten"
       },
       "desc": {
         "en": "Manually reset the heat alarm after it has been triggered.",
-        "nl": "Schakel het hitte-alarm handmatig uit nadat deze is getriggerd."
+        "nl": "Schakel het hitte alarm handmatig uit nadat deze is getriggerd."
       }
     },
     "button.reset_water_alarm": {
@@ -70,11 +72,11 @@
       "maintenanceAction": true,
       "title": {
         "en": "Reset tamper alarm",
-        "nl": "Sabotage-alarm resetten"
+        "nl": "Sabotage alarm resetten"
       },
       "desc": {
         "en": "Manually reset the tamper alarm after it has been triggered.",
-        "nl": "Schakel het sabotage-alarm handmatig uit nadat deze is getriggerd."
+        "nl": "Schakel het sabotage alarm handmatig uit nadat deze is getriggerd."
       }
     }
   },

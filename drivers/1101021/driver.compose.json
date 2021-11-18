@@ -1,6 +1,7 @@
 {
   "name": {
-    "en": "Strips Guard 700"
+    "en": "Strips Guard 700",
+    "nl": "Strips Guard 700"
   },
   "class": "sensor",
   "capabilities": [
@@ -15,11 +16,11 @@
       "maintenanceAction": true,
       "title": {
         "en": "Reset tamper alarm",
-        "nl": "Sabotage-alarm resetten"
+        "nl": "Sabotage alarm resetten"
       },
       "desc": {
         "en": "Manually reset the tamper alarm after it has been triggered.",
-        "nl": "Schakel het sabotage-alarm handmatig uit nadat deze is getriggerd."
+        "nl": "Schakel het sabotage alarm handmatig uit nadat deze is getriggerd."
       }
     }
   },
@@ -39,20 +40,23 @@
     "learnmode": {
       "image": "/drivers/1102011/assets/wakeup.svg",
       "instruction": {
-        "en": "To Add Strips to Your Homey hub\n\n1. Remove both magnets from Strips*\n2. The application may ask for the PIN code or the QR code scan. The PIN code is the first five digits of the DSK code\n\n*If you have previously removed the magnets from Strips, or need to re-add the device, performing a manual wake-up will join the device when the controller is in pairing mode\n\nManual Wake-Up:\n1. Place the magnet on the rounded end then remove it and observe the LED blink once\n2. Repeat 3 times in 10 seconds\n\nOne long LED blink means Strips has been successfully added to your Z-Wave network"
+        "en": "To Add Strips to Your Homey hub\n\n1. Remove both magnets from Strips*\n2. The application may ask for the PIN code or the QR code scan. The PIN code is the first five digits of the DSK code\n\n*If you have previously removed the magnets from Strips, or need to re-add the device, performing a manual wake-up will join the device when the controller is in pairing mode\n\nManual Wake-Up:\n1. Place the magnet on the rounded end then remove it and observe the LED blink once\n2. Repeat 3 times in 10 seconds\n\nOne long LED blink means Strips has been successfully added to your Z-Wave network",
+        "nl": "Strips toevoegen aan je Homey hub\n\n1. Verwijder beide magneten van Strips*\n2. De applicatie kan om de pincode of de QR codescan vragen. De pincode bestaat uit de eerste vijf cijfers van de DSK code\n\n*Als u de magneten eerder uit Strips hebt verwijderd of het apparaat opnieuw moet toevoegen, wordt het apparaat handmatig geactiveerd wanneer de controller wordt geactiveerd. in koppelingsmodus\n\nHandmatige activering:\n1. Plaats de magneet op het afgeronde uiteinde, verwijder deze en kijk hoe de LED eenmaal knippert\n2. Herhaal dit 3 keer in 10 seconden\n\nEen lange LED knippering betekent dat Strips succesvol is toegevoegd aan je Z-Wave netwerk"
       }
     },
     "unlearnmode": {
       "image": "/drivers/guard-700/assets/learnmode.png",
       "instruction": {
-        "en": "Performing a manual wake-up will remove the device when the controller is in un-pairing mode\n\nManual Wake-Up:\n1. Place the magnet on the rounded end then remove it and observe the LED blink once\n2. Repeat 3 times in 10 seconds\n\nOne long LED blink means Strips has been successfully removed from your Z-Wave network"
+        "en": "Performing a manual wake-up will remove the device when the controller is in un-pairing mode\n\nManual Wake-Up:\n1. Place the magnet on the rounded end then remove it and observe the LED blink once\n2. Repeat 3 times in 10 seconds\n\nOne long LED blink means Strips has been successfully removed from your Z-Wave network",
+        "nl": "Als u een handmatige activering uitvoert, wordt het apparaat verwijderd wanneer de controller zich in de ontkoppelingsmodus bevindt\n\nHandmatige activering:\n1. Plaats de magneet op het afgeronde uiteinde, verwijder deze en kijk hoe de LED eenmaal knippert\n2. Herhaal dit 3 keer in 10 seconden\n\nEen lange LED-knippering betekent dat Strips succesvol is verwijderd uit je Z-Wave netwerk"
       }
     },
     "associationGroups": [1],
     "associationGroupsOptions": {
       "1": {
         "hint": {
-          "en": "Z-Wave Plus Lifeline"
+          "en": "Z-Wave Plus Lifeline",
+          "nl": "Z-Wave Plus Reddingslijn"
         }
       }
     },

@@ -77,7 +77,7 @@
         },
         "label": {
           "en": "Temperature reporting unit",
-          "nl": "Temperatuur rapportage-eenheid"
+          "nl": "Temperatuur rapportage eenheid"
         },
         "hint": {
           "en": "This has no effect on how Homey displays the temperature",
@@ -294,7 +294,8 @@
           "nl": "Apparaattype"
         },
         "hint": {
-          "en": "Used to show or hide measurement capabilities of the Strips Comfort, which are identical on an electronics level.\r\nComfort: Only temperature and light measurement capabilities are shown.\r\nDrip: Only temperature and humidity measurement capabilities are shown."
+          "en": "Used to show or hide measurement capabilities of the Strips Comfort, which are identical on an electronics level.\r\nComfort: Only temperature and light measurement capabilities are shown.\r\nDrip: Only temperature and humidity measurement capabilities are shown.",
+          "nl": "Wordt gebruikt om meetmogelijkheden van de Strips Comfort weer te geven of te verbergen, die op elektronicaniveau identiek zijn.\r\nComfort: Alleen temperatuur en lichtmeetmogelijkheden worden weergegeven.\r\nDrip: Alleen temperatuur en vochtigheidsmeetmogelijkheden worden weergegeven."
         },
         "type": "dropdown",
         "value": "1",

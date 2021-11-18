@@ -40,7 +40,7 @@
     },
     "label": {
       "en": "LED indication",
-      "nl": "led-indicatie"
+      "nl": "LED indicatie"
     },
     "hint": {
       "en": "When enabled, the LED on Strips will flash shortly when the door/window is opened.",
@@ -52,11 +52,12 @@
   {
     "id": "activate_supervision",
     "type": "number",
-    "label": { "en": "Activate supervision" },
+    "label": { "en": "Activate supervision", "nl": "Supervisie activeren" },
     "value": 1,
     "attr": { "min": 0, "max": 2 },
     "hint": {
-      "en": "Activate Supervision command for only important alarm events or all events (*Supervised commands require a confirmation from the gateway when a notification is received)"
+      "en": "Activate Supervision command for only important alarm events or all events (*Supervised commands require a confirmation from the gateway when a notification is received)",
+      "nl": "Activeer de supervisieopdracht voor alleen belangrijke alarmgebeurtenissen of alle gebeurtenissen (*Bewaakte opdrachten vereisen een bevestiging van de gateway wanneer een melding wordt ontvangen)"
     },
     "zwave": {
       "index": 15,
